@@ -12,7 +12,10 @@ import { registerHarpoonCmds } from "./harpoon/commands";
 import { HarpoonOrchestrator } from "./harpoon/orchestrator";
 import { createCodeTelescopeAPI } from "./integration/api";
 import { PerformanceDevModule } from "./perf/perf-dev.module";
-import { registerProviderCmd } from "./utils/commands";
+import { openLazygit } from "./tools/lazygit";
+import { openTmux } from "./tools/tmux";
+import { openTypora } from "./tools/typora";
+import { registerProviderCmd, registerToolsCmd } from "./utils/commands";
 import { getConfigurationSection } from "./utils/configuration";
 
 let customProviderLoader: CustomProviderLoader;
@@ -83,6 +86,11 @@ export async function activate(ctx: vscode.ExtensionContext) {
   HarpoonProvider.initialize(ctx);
   const manager = HarpoonOrchestrator.getInstance(ctx);
   registerHarpoonCmds(manager, ctx);
+
+  // Register tools commands
+  registerToolsCmd("lazygit", openLazygit, ctx);
+  registerToolsCmd("tmux", openTmux, ctx);
+  registerToolsCmd("typora", openTypora, ctx);
 
   Logger.info(`${Globals.EXTENSION_NAME} activated!`);
 

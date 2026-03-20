@@ -6,7 +6,7 @@
         "url": "https://github.com/wooohchao/code-neovim-style-tools"
     },
     "publisher": "wooohchao",
-    "description": "A collection of tools including code telescope, and more",
+    "description": "A collection of Neovim-style tools, forked from code-telescope (https://github.com/guilhermec-costa/code-telescope), with some additional tools added.",
     "version": "0.0.1",
     "keywords": [
         "fuzzy",
@@ -175,6 +175,18 @@
             {
                 "command": "code-telescope.harpoon.gotoFile9",
                 "title": "Code Telescope: Harpoon - Go to File 9"
+            },
+            {
+                "command": "code-telescope.tools.tmux",
+                "title": "Code Telescope: Toggle TMux"
+            },
+            {
+                "command": "code-telescope.tools.lazygit",
+                "title": "Code Telescope: Open Lazygit"
+            },
+            {
+                "command": "code-telescope.tools.typora",
+                "title": "Code Telescope: Open Typora"
             }
         ],
         "keybindings": [
@@ -394,7 +406,7 @@
                     "description": "Matching algorithm for search: 'substring' (exact substring match) or 'subsequence' (character-by-character match like fzf)",
                     "order": 3
                 },
-                "codeTelescope.wslRoots": {
+                "codeTelescope.highlighter.wslExtensionPaths": {
                     "type": "array",
                     "items": {
                         "type": "string"

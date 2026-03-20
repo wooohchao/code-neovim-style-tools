@@ -25,6 +25,12 @@ export function registerHarpoonCmd(cmdSuffix: string, cb: () => void, ctx: vscod
   ctx.subscriptions.push(cmdDisposable);
 }
 
+export function registerToolsCmd(cmdSuffix: string, cb: () => void, ctx: vscode.ExtensionContext) {
+  const cmdId = getCmdId("tools", cmdSuffix);
+  const cmdDisposable = vscode.commands.registerCommand(cmdId, cb);
+  ctx.subscriptions.push(cmdDisposable);
+}
+
 export async function execCmd<T = any>(cmd: string, ...rest: any[]): Promise<T> {
   return (await vscode.commands.executeCommand(cmd, ...rest)) as T;
 }

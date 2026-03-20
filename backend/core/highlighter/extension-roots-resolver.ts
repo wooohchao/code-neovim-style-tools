@@ -11,8 +11,8 @@ export class ExtensionRootsResolver {
   static getWslRoots(): string[] {
     if (this.wslRoots !== null) return this.wslRoots;
 
-    const config = vscode.workspace.getConfiguration("codeTelescope");
-    const configuredRoots = config.get<string[]>("wslRoots", []);
+    const config = vscode.workspace.getConfiguration("codeTelescope.highlighter");
+    const configuredRoots = config.get<string[]>("wslExtensionPaths", []);
     Logger.info(`[ExtensionRootsResolver] WSL Roots: ${configuredRoots}`);
 
     return (this.wslRoots = configuredRoots.filter((p) => fs.existsSync(p)));
