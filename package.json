@@ -394,6 +394,15 @@
                     "description": "Matching algorithm for search: 'substring' (exact substring match) or 'subsequence' (character-by-character match like fzf)",
                     "order": 3
                 },
+                "codeTelescope.wslRoots": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "default": [],
+                    "description": "VS Code extension root paths for WSL environment (used for syntax highlighting). Example: [\"/mnt/c/Users/YourName/.vscode/extensions\"]",
+                    "order": 3.5
+                },
                 "codeTelescope.wsFileFinder.excludeHidden": {
                     "type": "boolean",
                     "default": true,
