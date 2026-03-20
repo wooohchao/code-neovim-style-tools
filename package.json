@@ -1,13 +1,13 @@
 {
-    "name": "code-telescope",
-    "displayName": "Code Telescope",
+    "name": "code-neovim-style-tools",
+    "displayName": "Code Neovim Style Tools",
     "repository": {
         "type": "git",
-        "url": "https://github.com/guilhermec-costa/code-telescope"
+        "url": "https://github.com/wooohchao/code-neovim-style-tools"
     },
-    "publisher": "guichina",
-    "description": "A keyboard-first fuzzy finder for navigating files, symbols, text and more in VS Code, inspired by Neovim Telescope.",
-    "version": "1.8.0",
+    "publisher": "wooohchao",
+    "description": "A collection of tools including code telescope, and more",
+    "version": "0.0.1",
     "keywords": [
         "fuzzy",
         "fuzzy finder",
