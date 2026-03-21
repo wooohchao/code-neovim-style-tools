@@ -3,7 +3,7 @@
 :root {
   --bg: var(--vscode-editor-background);
   --fg: var(--vscode-editor-foreground);
-  --border-color: var(--vscode-editorWidget-border);
+  --border-color: silver;
   --font-family: var(--vscode-editor-font-family);
   --status-bar-bg: var(--vscode-statusBar-background);
   --status-bar-fg: var(--vscode-statusBar-foreground);
@@ -69,6 +69,14 @@ body {
   min-width: 250px;
 }
 
+#search-results-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  position: relative;
+}
+
 #search-results {
   flex: 1;
   display: flex;
@@ -77,13 +85,14 @@ body {
   border: var(--border-size) solid var(--border-color);
   border-radius: var(--border-radius);
   padding-top: 10px;
+  min-height: 0;
 }
 
 #input-container {
   position: relative;
   width: 100%;
   flex-shrink: 0;
-  margin-top: 10px;
+  margin-bottom: 14px;
   padding-left: 10px;
   background: transparent;
   border: var(--border-size) solid var(--border-color);
@@ -109,9 +118,9 @@ body {
   font-size: 14px;
   padding: 2px 8px;
   font-weight: 400;
-  top: -50%;
+  top: -13px;
   left: 50%;
-  transform: translateX(-50%) translateY(50%);
+  transform: translateX(-50%);
   z-index: 20
 }
 
@@ -247,7 +256,7 @@ body {
   text-align: center;
   letter-spacing: 0.5px;
   color: var(--fg);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
   border-radius: 4px 4px 0 0;
   user-select: none;

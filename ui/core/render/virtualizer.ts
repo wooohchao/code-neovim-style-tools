@@ -27,10 +27,6 @@ export class Virtualizer {
     this.container.appendChild(this.spacer);
   }
 
-  private isIvyLayout(): boolean {
-    return document.body.dataset.layout === "ivy";
-  }
-
   public renderVirtualized(
     items: any[],
     query: string,
@@ -46,25 +42,19 @@ export class Virtualizer {
       return;
     }
 
-    const isIvy = this.isIvyLayout();
     const totalHeight = items.length * this.itemHeight;
     const viewportHeight = this.container.clientHeight;
 
     this.spacer.style.height = `${totalHeight}px`;
 
-    if (isIvy) {
-      this.spacer.style.marginTop = "0";
-      this.spacer.style.marginBottom = "auto";
-      this.spacer.style.minHeight = `${totalHeight}px`;
-    } else {
-      this.spacer.style.marginTop = "auto";
-      this.spacer.style.marginBottom = "0";
-      const minHeight = Math.max(totalHeight, viewportHeight);
-      this.spacer.style.minHeight = `${minHeight}px`;
-    }
+    // Classic layout: from top to bottom (same as ivy)
+    this.spacer.style.marginTop = "0";
+    this.spacer.style.marginBottom = "auto";
+    this.spacer.style.minHeight = `${totalHeight}px`;
 
     const scrollTop = this.container.scrollTop;
-    const effectiveScrollTop = !isIvy && totalHeight < viewportHeight ? 0 : scrollTop;
+    // Always start from top for both ivy and classic layouts
+    const effectiveScrollTop = scrollTop;
 
     const startIndex = Math.max(0, Math.floor(effectiveScrollTop / this.itemHeight) - this.bufferSize);
     const endIndex = Math.min(
@@ -76,10 +66,8 @@ export class Virtualizer {
 
     const fragment = document.createDocumentFragment();
 
-    let topOffset = 0;
-    if (!isIvy && totalHeight < viewportHeight) {
-      topOffset = viewportHeight - totalHeight;
-    }
+    // Always start from top (no offset needed)
+    const topOffset = 0;
 
     for (let i = startIndex; i < endIndex; i++) {
       const li = createItem(items[i], i, query);
@@ -101,9 +89,8 @@ export class Virtualizer {
 
     const totalHeight = this.spacer.scrollHeight;
     const viewportHeight = this.container.clientHeight;
-    const isIvy = this.isIvyLayout();
 
-    if (!isIvy && totalHeight <= viewportHeight) {
+    if (totalHeight <= viewportHeight) {
       this.container.scrollTop = 0;
       return;
     }
@@ -114,8 +101,7 @@ export class Virtualizer {
     const scrollTop = this.container.scrollTop;
     const scrollBottom = scrollTop + viewportHeight;
 
-    // for ivy layout
-    const margin = isIvy ? this.itemHeight : 0;
+    const margin = this.itemHeight;
 
     // only adjust if item is visible
     if (itemTop < scrollTop + margin) {

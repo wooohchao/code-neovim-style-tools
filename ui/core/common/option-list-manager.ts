@@ -6,7 +6,6 @@ import { computeMatch, scoreMatch } from "../algos/score-engine";
 import { matches } from "../algos/subsequence";
 import { PreviewManager } from "../render/preview-manager";
 import { Virtualizer } from "../render/virtualizer";
-import { StateManager } from "./code/state-manager";
 import { WebviewToExtensionMessenger } from "./wv-to-extension-messenger";
 
 /**
@@ -61,13 +60,6 @@ export class OptionListManager {
       this._instance = new OptionListManager();
     }
     return this._instance;
-  }
-
-  /**
-   * Returns true if ivy layout is active
-   */
-  private isIvyLayout(): boolean {
-    return StateManager.layoutMode === "ivy";
   }
 
   /**
@@ -195,11 +187,8 @@ export class OptionListManager {
   }
 
   private getRelativeFirstIndex(): number {
-    const isIvy = this.isIvyLayout();
-
-    // in ivy layout, index 0 is the last visually
-    // in default layout, index N-1 is the last visually
-    return isIvy ? 0 : this.filteredOptions.length - 1;
+    // Both ivy and classic layouts start from the first item (index 0)
+    return 0;
   }
 
   private getRelativeFirstItem() {
@@ -251,14 +240,10 @@ export class OptionListManager {
   }
 
   private applySortOnOptions(options: any[], query: string) {
-    const isIvy = this.isIvyLayout();
     const customSort = this.dataAdapter.sortFn;
 
     if (customSort) {
-      options.sort((opt1, opt2) => {
-        const result = customSort(opt1, opt2);
-        return isIvy ? -result : result;
-      });
+      options.sort((opt1, opt2) => customSort(opt1, opt2));
       return;
     }
 
@@ -274,10 +259,7 @@ export class OptionListManager {
       score: scoreMatch(lowerQuery, this.dataAdapter.getSearchText(opt)),
     }));
 
-    scored.sort((a, b) => {
-      const result = a.score - b.score;
-      return isIvy ? -result : result;
-    });
+    scored.sort((a, b) => a.score - b.score);
 
     for (let i = 0; i < workingSet.length; i++) {
       options[i] = scored[i].opt;
