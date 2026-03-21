@@ -46,6 +46,6 @@ async function newTmuxTerminal(): Promise<void> {
   await vscode.commands.executeCommand("workbench.action.terminal.moveToEditor");
   await vscode.commands.executeCommand("workbench.action.focusActiveEditorGroup");
   if (vscode.window.terminals.length > 1) {
-    await vscode.commands.executeCommand("workbench.action.togglePanel");
+    await vscode.commands.executeCommand("workbench.action.closePanel");
   }
 }
