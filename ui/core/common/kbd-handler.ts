@@ -30,6 +30,7 @@ export class KeyboardHandler {
   private onConfirm?: KeydownHandler;
   private onClose?: KeydownHandler;
   private onPromptDelete?: KeydownHandler;
+  private shouldClose?: () => boolean;
 
   constructor(customConfig?: Partial<KeybindingConfig>) {
     this._cfg = this.mergeConfig(customConfig);
@@ -115,7 +116,15 @@ export class KeyboardHandler {
         { key: this._cfg.moveDown, handler: () => this.onMoveDown?.() },
         { key: this._cfg.moveUp, handler: () => this.onMoveUp?.() },
         { key: this._cfg.confirm, handler: () => this.onConfirm?.() },
-        { key: this._cfg.close, handler: () => this.onClose?.() },
+        {
+          key: this._cfg.close,
+          handler: () => {
+            // Only close if shouldClose is not set or returns true
+            if (!this.shouldClose || this.shouldClose()) {
+              this.onClose?.();
+            }
+          },
+        },
         { key: this._cfg.scrollUp, handler: () => this.onScrollUp?.() },
         { key: this._cfg.scrollDown, handler: () => this.onScrollDown?.() },
         { key: this._cfg.scrollLeft, handler: () => this.onScrollLeft?.() },
@@ -157,6 +166,9 @@ export class KeyboardHandler {
   }
   setCloseHandler(handler: KeydownHandler): void {
     this.onClose = handler;
+  }
+  setShouldCloseCondition(condition: () => boolean): void {
+    this.shouldClose = condition;
   }
   setPromptDeleteHandler(handler: KeydownHandler): void {
     this.onPromptDelete = handler;

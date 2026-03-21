@@ -139,6 +139,34 @@ export class OptionListManager {
     this.moveSelection(1);
   }
 
+  public jumpToFirst() {
+    if (this.filteredOptions.length === 0) return;
+    this.jumpToIndex(0);
+  }
+
+  public jumpToLast() {
+    if (this.filteredOptions.length === 0) return;
+    this.jumpToIndex(this.filteredOptions.length - 1);
+  }
+
+  private jumpToIndex(index: number): void {
+    const previousIndex = this.selectedIndex;
+    this.selectedIndex = index;
+
+    this.scrollToSelected();
+
+    requestAnimationFrame(() => {
+      const prevLi = document.getElementById(`${this.OPTION_ITEM_ID_PREFIX}${previousIndex}`);
+      prevLi?.classList.remove("selected");
+
+      const curLi = document.getElementById(`${this.OPTION_ITEM_ID_PREFIX}${this.selectedIndex}`);
+      curLi?.classList.add("selected");
+    });
+
+    const selectedOption = this.filteredOptions.at(this.selectedIndex);
+    this.requestPreview(selectedOption);
+  }
+
   /**
    * Returns the selection value for the currently selected option.
    */

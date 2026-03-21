@@ -18,11 +18,12 @@ export class WebviewController {
   private previewQueue: Promise<void> = Promise.resolve();
   private lastSearchQuery: string | undefined;
   private currentRequestId: string | undefined;
+  private vimInputHandler: VimInputHandler;
 
   constructor(private readonly keyboardHandler: KeyboardHandler) {
     console.log("[WebviewController] Initializing controller");
     this.searchElement = document.getElementById("search") as HTMLInputElement;
-    new VimInputHandler(this.searchElement);
+    this.vimInputHandler = new VimInputHandler(this.searchElement);
 
     this.setupEventListeners();
     this.setupKeyboardHandlers();
@@ -175,6 +176,24 @@ export class WebviewController {
   }
 
   private setupKeyboardHandlers(): void {
+    // Setup vim j/k navigation in normal mode
+    this.vimInputHandler.setMoveUpHandler(OptionListManager.instance.moveSelectionUp.bind(OptionListManager.instance));
+    this.vimInputHandler.setMoveDownHandler(
+      OptionListManager.instance.moveSelectionDown.bind(OptionListManager.instance),
+    );
+    // Setup vim gg/G jump commands in normal mode
+    this.vimInputHandler.setJumpToFirstHandler(OptionListManager.instance.jumpToFirst.bind(OptionListManager.instance));
+    this.vimInputHandler.setJumpToLastHandler(OptionListManager.instance.jumpToLast.bind(OptionListManager.instance));
+    // Setup vim scroll commands in normal mode
+    this.vimInputHandler.setScrollUpHandler(PreviewManager.instance.scrollUp.bind(PreviewManager.instance));
+    this.vimInputHandler.setScrollDownHandler(PreviewManager.instance.scrollDown.bind(PreviewManager.instance));
+    this.vimInputHandler.setScrollLeftHandler(PreviewManager.instance.scrollLeft.bind(PreviewManager.instance));
+    this.vimInputHandler.setScrollRightHandler(PreviewManager.instance.scrollRight.bind(PreviewManager.instance));
+    // Setup vim close in normal mode (second esc closes panel)
+    this.vimInputHandler.setCloseHandler(
+      WebviewToExtensionMessenger.instance.requestClosePanel.bind(WebviewToExtensionMessenger.instance),
+    );
+
     this.keyboardHandler.setMoveUpHandler(OptionListManager.instance.moveSelectionUp.bind(OptionListManager.instance));
     this.keyboardHandler.setMoveDownHandler(
       OptionListManager.instance.moveSelectionDown.bind(OptionListManager.instance),
@@ -187,6 +206,8 @@ export class WebviewController {
     this.keyboardHandler.setCloseHandler(
       WebviewToExtensionMessenger.instance.requestClosePanel.bind(WebviewToExtensionMessenger.instance),
     );
+    // Only allow close when in vim normal mode
+    this.keyboardHandler.setShouldCloseCondition(() => this.vimInputHandler.getMode() === "normal");
     this.keyboardHandler.setPromptDeleteHandler(() => {
       const input = this.searchElement;
       const pos = input.selectionStart || 0;

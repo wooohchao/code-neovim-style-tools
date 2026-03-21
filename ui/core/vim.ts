@@ -11,6 +11,54 @@ export class VimInputHandler {
   private operator: { type: "d" | "c" | "y"; count: number } | null = null;
   private lastFindChar: { char: string; type: "f" | "F" | "t" | "T" } | null = null;
 
+  // Callbacks for option list navigation
+  private onMoveUp?: () => void;
+  private onMoveDown?: () => void;
+  private onJumpToFirst?: () => void;
+  private onJumpToLast?: () => void;
+  private onScrollUp?: () => void;
+  private onScrollDown?: () => void;
+  private onScrollLeft?: () => void;
+  private onScrollRight?: () => void;
+  private onClose?: () => void;
+  private pendingG = false;
+
+  setMoveUpHandler(handler: () => void): void {
+    this.onMoveUp = handler;
+  }
+
+  setMoveDownHandler(handler: () => void): void {
+    this.onMoveDown = handler;
+  }
+
+  setJumpToFirstHandler(handler: () => void): void {
+    this.onJumpToFirst = handler;
+  }
+
+  setJumpToLastHandler(handler: () => void): void {
+    this.onJumpToLast = handler;
+  }
+
+  setScrollUpHandler(handler: () => void): void {
+    this.onScrollUp = handler;
+  }
+
+  setScrollDownHandler(handler: () => void): void {
+    this.onScrollDown = handler;
+  }
+
+  setScrollLeftHandler(handler: () => void): void {
+    this.onScrollLeft = handler;
+  }
+
+  setScrollRightHandler(handler: () => void): void {
+    this.onScrollRight = handler;
+  }
+
+  setCloseHandler(handler: () => void): void {
+    this.onClose = handler;
+  }
+
   constructor(private input: HTMLInputElement) {
     this.setupEventListeners();
     this.createCursorElement();
@@ -141,6 +189,7 @@ export class VimInputHandler {
   private handleInsertMode(e: KeyboardEvent): void {
     if (e.key === "Escape" || (e.ctrlKey && e.key === "[")) {
       e.preventDefault();
+      e.stopPropagation();
       this.enterNormalMode();
       return;
     }
@@ -148,6 +197,45 @@ export class VimInputHandler {
 
   private handleNormalMode(e: KeyboardEvent): void {
     const { key, ctrlKey } = e;
+
+    // in normal mode, esc closes the panel
+    if (key === "Escape" || (key === "[" && ctrlKey)) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.onClose?.();
+      return;
+    }
+
+    // handle pending gg command
+    if (this.pendingG) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.pendingG = false;
+      if (key === "g") {
+        this.onJumpToFirst?.();
+      }
+      return;
+    }
+
+    // handle scroll commands with ctrl in normal mode
+    if (ctrlKey) {
+      e.preventDefault();
+      e.stopPropagation();
+      switch (key.toLowerCase()) {
+        case "u":
+          this.onScrollUp?.();
+          return;
+        case "d":
+          this.onScrollDown?.();
+          return;
+        case "h":
+          this.onScrollLeft?.();
+          return;
+        case "l":
+          this.onScrollRight?.();
+          return;
+      }
+    }
 
     // handle pending find character (f, F, t, T)
     if (this.pendingFindChar) {
@@ -310,6 +398,20 @@ export class VimInputHandler {
       case "A":
         this.setCursorPosition(len);
         this.enterInsertMode();
+        return;
+
+      // option list navigation
+      case "j":
+        this.onMoveDown?.();
+        return;
+      case "k":
+        this.onMoveUp?.();
+        return;
+      case "g":
+        this.pendingG = true;
+        return;
+      case "G":
+        this.onJumpToLast?.();
         return;
     }
 
@@ -578,4 +680,5 @@ const preventCommands = [
   ";",
   ",",
   "g",
+  "G",
 ];
