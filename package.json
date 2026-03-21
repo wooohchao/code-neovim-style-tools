@@ -1,699 +1,699 @@
 {
-    "name": "code-neovim-style-tools",
-    "displayName": "Code Neovim Style Tools",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/wooohchao/code-neovim-style-tools"
-    },
-    "publisher": "wooohchao",
-    "description": "A collection of Neovim-style tools, forked from code-telescope (https://github.com/guilhermec-costa/code-telescope), with some additional tools added.",
-    "version": "0.0.1",
-    "keywords": [
-        "fuzzy",
-        "fuzzy finder",
-        "search",
-        "code navigation",
-        "navigation",
-        "telescope",
-        "neovim",
-        "keyboard",
-        "keyboard-driven",
-        "productivity",
-        "quick open",
-        "symbols",
-        "files",
-        "ripgrep",
-        "bookmark",
-        "harpoon",
-        "jump"
+  "name": "code-neovim-style-tools",
+  "displayName": "Code Neovim Style Tools",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wooohchao/code-neovim-style-tools"
+  },
+  "publisher": "wooohchao",
+  "description": "A collection of Neovim-style tools, forked from code-telescope (https://github.com/guilhermec-costa/code-telescope), with some additional tools added.",
+  "version": "0.0.2",
+  "keywords": [
+    "fuzzy",
+    "fuzzy finder",
+    "search",
+    "code navigation",
+    "navigation",
+    "telescope",
+    "neovim",
+    "keyboard",
+    "keyboard-driven",
+    "productivity",
+    "quick open",
+    "symbols",
+    "files",
+    "ripgrep",
+    "bookmark",
+    "harpoon",
+    "jump"
+  ],
+  "icon": "images/logo.webp",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./backend/dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "code-telescope.fuzzy.file",
+        "title": "Code Telescope: Smart File Search"
+      },
+      {
+        "command": "code-telescope.fuzzy.branch",
+        "title": "Code Telescope: Smart Branch Search"
+      },
+      {
+        "command": "code-telescope.fuzzy.commit",
+        "title": "Code Telescope: Smart Commit Search"
+      },
+      {
+        "command": "code-telescope.fuzzy.stash",
+        "title": "Code Telescope: Smart Stash Search"
+      },
+      {
+        "command": "code-telescope.fuzzy.wsText",
+        "title": "Code Telescope: Workspace Text Search"
+      },
+      {
+        "command": "code-telescope.fuzzy.documentSymbols",
+        "title": "Code Telescope: Document Symbols"
+      },
+      {
+        "command": "code-telescope.fuzzy.fileText",
+        "title": "Code Telescope: Current File Text Search"
+      },
+      {
+        "command": "code-telescope.fuzzy.keybindings",
+        "title": "Code Telescope: Keyboard Shortcuts"
+      },
+      {
+        "command": "code-telescope.fuzzy.custom",
+        "title": "Code Telescope: Select Search Tool"
+      },
+      {
+        "command": "code-telescope.fuzzy.wsSymbols",
+        "title": "Code Telescope: Workspace Symbol Search"
+      },
+      {
+        "command": "code-telescope.fuzzy.recentFiles",
+        "title": "Code Telescope: Active Tabs"
+      },
+      {
+        "command": "code-telescope.fuzzy.colorschemes",
+        "title": "Code Telescope: Color Themes"
+      },
+      {
+        "command": "code-telescope.fuzzy.diagnostics",
+        "title": "Code Telescope: Workspace Diagnostics"
+      },
+      {
+        "command": "code-telescope.fuzzy.breakpoints",
+        "title": "Code Telescope: Workspace Breakpoints"
+      },
+      {
+        "command": "code-telescope.fuzzy.harpoon",
+        "title": "Code Telescope: Harpoon Marks"
+      },
+      {
+        "command": "code-telescope.fuzzy.callHierarchy",
+        "title": "Code Telescope: Explore Call Hierarchy"
+      },
+      {
+        "command": "code-telescope.fuzzy.tasks",
+        "title": "Code Telescope: Workspace Tasks"
+      },
+      {
+        "command": "code-telescope.fuzzy.extensions",
+        "title": "Code Telescope: Workspace Extensions"
+      },
+      {
+        "command": "code-telescope.fuzzy.pkgDocs",
+        "title": "Code Telescope: Workspace Package Docs"
+      },
+      {
+        "command": "code-telescope.fuzzy.builtin",
+        "title": "Code Telescope: Builtin Finders"
+      },
+      {
+        "command": "code-telescope.fuzzy.fontFamily",
+        "title": "Code Telescope: Workspace Fonts"
+      },
+      {
+        "command": "code-telescope.fuzzy.lspRefs",
+        "title": "Code Telescope: Workspace References"
+      },
+      {
+        "command": "code-telescope.harpoon.addFile",
+        "title": "Code Telescope: Harpoon - Add File"
+      },
+      {
+        "command": "code-telescope.harpoon.removeCurrentFile",
+        "title": "Code Telescope: Harpoon - Remove Current File"
+      },
+      {
+        "command": "code-telescope.harpoon.clear",
+        "title": "Code Telescope: Harpoon - Clear All Marks"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile1",
+        "title": "Code Telescope: Harpoon - Go to File 1"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile2",
+        "title": "Code Telescope: Harpoon - Go to File 2"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile3",
+        "title": "Code Telescope: Harpoon - Go to File 3"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile4",
+        "title": "Code Telescope: Harpoon - Go to File 4"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile5",
+        "title": "Code Telescope: Harpoon - Go to File 5"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile6",
+        "title": "Code Telescope: Harpoon - Go to File 6"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile7",
+        "title": "Code Telescope: Harpoon - Go to File 7"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile8",
+        "title": "Code Telescope: Harpoon - Go to File 8"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile9",
+        "title": "Code Telescope: Harpoon - Go to File 9"
+      },
+      {
+        "command": "code-telescope.tools.tmux",
+        "title": "Code Telescope: Toggle TMux"
+      },
+      {
+        "command": "code-telescope.tools.lazygit",
+        "title": "Code Telescope: Open Lazygit"
+      },
+      {
+        "command": "code-telescope.tools.typora",
+        "title": "Code Telescope: Open Typora"
+      }
     ],
-    "icon": "images/logo.webp",
-    "engines": {
-        "vscode": "^1.85.0"
-    },
-    "categories": [
-        "Other"
+    "keybindings": [
+      {
+        "command": "code-telescope.fuzzy.file",
+        "key": "alt+m f",
+        "mac": "alt+m f"
+      },
+      {
+        "command": "code-telescope.fuzzy.wsText",
+        "key": "alt+m g",
+        "mac": "alt+m g"
+      },
+      {
+        "command": "code-telescope.fuzzy.fileText",
+        "key": "alt+m /",
+        "mac": "alt+m /"
+      },
+      {
+        "command": "code-telescope.fuzzy.recentFiles",
+        "key": "alt+m r",
+        "mac": "alt+m r"
+      },
+      {
+        "command": "code-telescope.fuzzy.wsSymbols",
+        "key": "alt+m s",
+        "mac": "alt+m s"
+      },
+      {
+        "command": "code-telescope.fuzzy.documentSymbols",
+        "key": "alt+m .",
+        "mac": "alt+m ."
+      },
+      {
+        "command": "code-telescope.fuzzy.branch",
+        "key": "alt+m b",
+        "mac": "alt+m b"
+      },
+      {
+        "command": "code-telescope.fuzzy.commit",
+        "key": "alt+m c",
+        "mac": "alt+m c"
+      },
+      {
+        "command": "code-telescope.fuzzy.stash",
+        "key": "alt+m z",
+        "mac": "alt+m z"
+      },
+      {
+        "command": "code-telescope.fuzzy.diagnostics",
+        "key": "alt+m d",
+        "mac": "alt+m d"
+      },
+      {
+        "command": "code-telescope.fuzzy.callHierarchy",
+        "key": "alt+m h",
+        "mac": "alt+m h"
+      },
+      {
+        "command": "code-telescope.fuzzy.lspRefs",
+        "key": "alt+m n",
+        "mac": "alt+m n"
+      },
+      {
+        "command": "code-telescope.fuzzy.keybindings",
+        "key": "alt+m k",
+        "mac": "alt+m k"
+      },
+      {
+        "command": "code-telescope.fuzzy.colorschemes",
+        "key": "alt+m t",
+        "mac": "alt+m t"
+      },
+      {
+        "command": "code-telescope.fuzzy.tasks",
+        "key": "alt+m x",
+        "mac": "alt+m x"
+      },
+      {
+        "command": "code-telescope.fuzzy.breakpoints",
+        "key": "alt+m p",
+        "mac": "alt+m p"
+      },
+      {
+        "command": "code-telescope.fuzzy.extensions",
+        "key": "alt+m e",
+        "mac": "alt+m e"
+      },
+      {
+        "command": "code-telescope.fuzzy.pkgDocs",
+        "key": "alt+m v",
+        "mac": "alt+m v"
+      },
+      {
+        "command": "code-telescope.fuzzy.fontFamily",
+        "key": "alt+m ,",
+        "mac": "alt+m ,"
+      },
+      {
+        "command": "code-telescope.fuzzy.harpoon",
+        "key": "alt+m m",
+        "mac": "alt+m m"
+      },
+      {
+        "command": "code-telescope.fuzzy.custom",
+        "key": "alt+m u",
+        "mac": "alt+m u"
+      },
+      {
+        "command": "code-telescope.harpoon.addFile",
+        "key": "ctrl+alt+m",
+        "mac": "cmd+alt+m"
+      },
+      {
+        "command": "code-telescope.harpoon.removeCurrentFile",
+        "key": "ctrl+alt+backspace",
+        "mac": "cmd+alt+backspace"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile1",
+        "key": "ctrl+1",
+        "mac": "cmd+1"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile2",
+        "key": "ctrl+2",
+        "mac": "cmd+2"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile3",
+        "key": "ctrl+3",
+        "mac": "cmd+3"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile4",
+        "key": "ctrl+4",
+        "mac": "cmd+4"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile5",
+        "key": "ctrl+5",
+        "mac": "cmd+5"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile6",
+        "key": "ctrl+6",
+        "mac": "cmd+6"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile7",
+        "key": "ctrl+7",
+        "mac": "cmd+7"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile8",
+        "key": "ctrl+8",
+        "mac": "cmd+8"
+      },
+      {
+        "command": "code-telescope.harpoon.gotoFile9",
+        "key": "ctrl+9",
+        "mac": "cmd+9"
+      }
     ],
-    "activationEvents": [
-        "onStartupFinished"
-    ],
-    "main": "./backend/dist/extension.js",
-    "contributes": {
-        "commands": [
-            {
-                "command": "code-telescope.fuzzy.file",
-                "title": "Code Telescope: Smart File Search"
+    "configuration": {
+      "title": "Code Telescope – Search & Panel Settings",
+      "properties": {
+        "codeTelescope.keybindings": {
+          "order": 3,
+          "type": "object",
+          "description": "Custom keybindings for the Telescope panel",
+          "default": {
+            "moveDown": "ctrl+j",
+            "moveUp": "ctrl+k",
+            "confirm": "enter",
+            "close": "escape",
+            "scrollUp": "ctrl+u",
+            "scrollDown": "ctrl+d",
+            "scrollLeft": "ctrl+h",
+            "scrollRight": "ctrl+l",
+            "promptDelete": "backspace"
+          },
+          "properties": {
+            "moveDown": {
+              "type": "string"
             },
-            {
-                "command": "code-telescope.fuzzy.branch",
-                "title": "Code Telescope: Smart Branch Search"
+            "moveUp": {
+              "type": "string"
             },
-            {
-                "command": "code-telescope.fuzzy.commit",
-                "title": "Code Telescope: Smart Commit Search"
+            "confirm": {
+              "type": "string"
             },
-            {
-                "command": "code-telescope.fuzzy.stash",
-                "title": "Code Telescope: Smart Stash Search"
+            "close": {
+              "type": "string"
             },
-            {
-                "command": "code-telescope.fuzzy.wsText",
-                "title": "Code Telescope: Workspace Text Search"
+            "scrollUp": {
+              "type": "string"
             },
-            {
-                "command": "code-telescope.fuzzy.documentSymbols",
-                "title": "Code Telescope: Document Symbols"
+            "scrollDown": {
+              "type": "string"
             },
-            {
-                "command": "code-telescope.fuzzy.fileText",
-                "title": "Code Telescope: Current File Text Search"
+            "scrollLeft": {
+              "type": "string"
             },
-            {
-                "command": "code-telescope.fuzzy.keybindings",
-                "title": "Code Telescope: Keyboard Shortcuts"
-            },
-            {
-                "command": "code-telescope.fuzzy.custom",
-                "title": "Code Telescope: Select Search Tool"
-            },
-            {
-                "command": "code-telescope.fuzzy.wsSymbols",
-                "title": "Code Telescope: Workspace Symbol Search"
-            },
-            {
-                "command": "code-telescope.fuzzy.recentFiles",
-                "title": "Code Telescope: Active Tabs"
-            },
-            {
-                "command": "code-telescope.fuzzy.colorschemes",
-                "title": "Code Telescope: Color Themes"
-            },
-            {
-                "command": "code-telescope.fuzzy.diagnostics",
-                "title": "Code Telescope: Workspace Diagnostics"
-            },
-            {
-                "command": "code-telescope.fuzzy.breakpoints",
-                "title": "Code Telescope: Workspace Breakpoints"
-            },
-            {
-                "command": "code-telescope.fuzzy.harpoon",
-                "title": "Code Telescope: Harpoon Marks"
-            },
-            {
-                "command": "code-telescope.fuzzy.callHierarchy",
-                "title": "Code Telescope: Explore Call Hierarchy"
-            },
-            {
-                "command": "code-telescope.fuzzy.tasks",
-                "title": "Code Telescope: Workspace Tasks"
-            },
-            {
-                "command": "code-telescope.fuzzy.extensions",
-                "title": "Code Telescope: Workspace Extensions"
-            },
-            {
-                "command": "code-telescope.fuzzy.pkgDocs",
-                "title": "Code Telescope: Workspace Package Docs"
-            },
-            {
-                "command": "code-telescope.fuzzy.builtin",
-                "title": "Code Telescope: Builtin Finders"
-            },
-            {
-                "command": "code-telescope.fuzzy.fontFamily",
-                "title": "Code Telescope: Workspace Fonts"
-            },
-            {
-                "command": "code-telescope.fuzzy.lspRefs",
-                "title": "Code Telescope: Workspace References"
-            },
-            {
-                "command": "code-telescope.harpoon.addFile",
-                "title": "Code Telescope: Harpoon - Add File"
-            },
-            {
-                "command": "code-telescope.harpoon.removeCurrentFile",
-                "title": "Code Telescope: Harpoon - Remove Current File"
-            },
-            {
-                "command": "code-telescope.harpoon.clear",
-                "title": "Code Telescope: Harpoon - Clear All Marks"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile1",
-                "title": "Code Telescope: Harpoon - Go to File 1"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile2",
-                "title": "Code Telescope: Harpoon - Go to File 2"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile3",
-                "title": "Code Telescope: Harpoon - Go to File 3"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile4",
-                "title": "Code Telescope: Harpoon - Go to File 4"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile5",
-                "title": "Code Telescope: Harpoon - Go to File 5"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile6",
-                "title": "Code Telescope: Harpoon - Go to File 6"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile7",
-                "title": "Code Telescope: Harpoon - Go to File 7"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile8",
-                "title": "Code Telescope: Harpoon - Go to File 8"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile9",
-                "title": "Code Telescope: Harpoon - Go to File 9"
-            },
-            {
-                "command": "code-telescope.tools.tmux",
-                "title": "Code Telescope: Toggle TMux"
-            },
-            {
-                "command": "code-telescope.tools.lazygit",
-                "title": "Code Telescope: Open Lazygit"
-            },
-            {
-                "command": "code-telescope.tools.typora",
-                "title": "Code Telescope: Open Typora"
+            "scrollRight": {
+              "type": "string"
             }
-        ],
-        "keybindings": [
-            {
-                "command": "code-telescope.fuzzy.file",
-                "key": "alt+m f",
-                "mac": "alt+m f"
-            },
-            {
-                "command": "code-telescope.fuzzy.wsText",
-                "key": "alt+m g",
-                "mac": "alt+m g"
-            },
-            {
-                "command": "code-telescope.fuzzy.fileText",
-                "key": "alt+m /",
-                "mac": "alt+m /"
-            },
-            {
-                "command": "code-telescope.fuzzy.recentFiles",
-                "key": "alt+m r",
-                "mac": "alt+m r"
-            },
-            {
-                "command": "code-telescope.fuzzy.wsSymbols",
-                "key": "alt+m s",
-                "mac": "alt+m s"
-            },
-            {
-                "command": "code-telescope.fuzzy.documentSymbols",
-                "key": "alt+m .",
-                "mac": "alt+m ."
-            },
-            {
-                "command": "code-telescope.fuzzy.branch",
-                "key": "alt+m b",
-                "mac": "alt+m b"
-            },
-            {
-                "command": "code-telescope.fuzzy.commit",
-                "key": "alt+m c",
-                "mac": "alt+m c"
-            },
-            {
-                "command": "code-telescope.fuzzy.stash",
-                "key": "alt+m z",
-                "mac": "alt+m z"
-            },
-            {
-                "command": "code-telescope.fuzzy.diagnostics",
-                "key": "alt+m d",
-                "mac": "alt+m d"
-            },
-            {
-                "command": "code-telescope.fuzzy.callHierarchy",
-                "key": "alt+m h",
-                "mac": "alt+m h"
-            },
-            {
-                "command": "code-telescope.fuzzy.lspRefs",
-                "key": "alt+m n",
-                "mac": "alt+m n"
-            },
-            {
-                "command": "code-telescope.fuzzy.keybindings",
-                "key": "alt+m k",
-                "mac": "alt+m k"
-            },
-            {
-                "command": "code-telescope.fuzzy.colorschemes",
-                "key": "alt+m t",
-                "mac": "alt+m t"
-            },
-            {
-                "command": "code-telescope.fuzzy.tasks",
-                "key": "alt+m x",
-                "mac": "alt+m x"
-            },
-            {
-                "command": "code-telescope.fuzzy.breakpoints",
-                "key": "alt+m p",
-                "mac": "alt+m p"
-            },
-            {
-                "command": "code-telescope.fuzzy.extensions",
-                "key": "alt+m e",
-                "mac": "alt+m e"
-            },
-            {
-                "command": "code-telescope.fuzzy.pkgDocs",
-                "key": "alt+m v",
-                "mac": "alt+m v"
-            },
-            {
-                "command": "code-telescope.fuzzy.fontFamily",
-                "key": "alt+m ,",
-                "mac": "alt+m ,"
-            },
-            {
-                "command": "code-telescope.fuzzy.harpoon",
-                "key": "alt+m m",
-                "mac": "alt+m m"
-            },
-            {
-                "command": "code-telescope.fuzzy.custom",
-                "key": "alt+m u",
-                "mac": "alt+m u"
-            },
-            {
-                "command": "code-telescope.harpoon.addFile",
-                "key": "ctrl+alt+m",
-                "mac": "cmd+alt+m"
-            },
-            {
-                "command": "code-telescope.harpoon.removeCurrentFile",
-                "key": "ctrl+alt+backspace",
-                "mac": "cmd+alt+backspace"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile1",
-                "key": "ctrl+1",
-                "mac": "cmd+1"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile2",
-                "key": "ctrl+2",
-                "mac": "cmd+2"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile3",
-                "key": "ctrl+3",
-                "mac": "cmd+3"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile4",
-                "key": "ctrl+4",
-                "mac": "cmd+4"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile5",
-                "key": "ctrl+5",
-                "mac": "cmd+5"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile6",
-                "key": "ctrl+6",
-                "mac": "cmd+6"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile7",
-                "key": "ctrl+7",
-                "mac": "cmd+7"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile8",
-                "key": "ctrl+8",
-                "mac": "cmd+8"
-            },
-            {
-                "command": "code-telescope.harpoon.gotoFile9",
-                "key": "ctrl+9",
-                "mac": "cmd+9"
-            }
-        ],
-        "configuration": {
-            "title": "Code Telescope – Search & Panel Settings",
-            "properties": {
-                "codeTelescope.keybindings": {
-                    "order": 3,
-                    "type": "object",
-                    "description": "Custom keybindings for the Telescope panel",
-                    "default": {
-                        "moveDown": "ctrl+j",
-                        "moveUp": "ctrl+k",
-                        "confirm": "enter",
-                        "close": "escape",
-                        "scrollUp": "ctrl+u",
-                        "scrollDown": "ctrl+d",
-                        "scrollLeft": "ctrl+h",
-                        "scrollRight": "ctrl+l",
-                        "promptDelete": "backspace"
-                    },
-                    "properties": {
-                        "moveDown": {
-                            "type": "string"
-                        },
-                        "moveUp": {
-                            "type": "string"
-                        },
-                        "confirm": {
-                            "type": "string"
-                        },
-                        "close": {
-                            "type": "string"
-                        },
-                        "scrollUp": {
-                            "type": "string"
-                        },
-                        "scrollDown": {
-                            "type": "string"
-                        },
-                        "scrollLeft": {
-                            "type": "string"
-                        },
-                        "scrollRight": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "codeTelescope.matching.algorithm": {
-                    "type": "string",
-                    "enum": [
-                        "substring",
-                        "subsequence"
-                    ],
-                    "default": "subsequence",
-                    "description": "Matching algorithm for search: 'substring' (exact substring match) or 'subsequence' (character-by-character match like fzf)",
-                    "order": 3
-                },
-                "codeTelescope.highlighter.wslExtensionPaths": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "default": [],
-                    "description": "VS Code extension root paths for WSL environment (used for syntax highlighting). Example: [\"/mnt/c/Users/YourName/.vscode/extensions\"]",
-                    "order": 3.5
-                },
-                "codeTelescope.wsFileFinder.excludeHidden": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Exclude hidden files and folders (dotfiles) from file search results.",
-                    "order": 4
-                },
-                "codeTelescope.wsFileFinder.includePatterns": {
-                    "type": "array",
-                    "default": [
-                        "**/*"
-                    ],
-                    "description": "Glob patterns to include",
-                    "order": 5
-                },
-                "codeTelescope.wsFileFinder.fixedStrings": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Search using literal text instead of regex.",
-                    "order": 4
-                },
-                "codeTelescope.wsFileFinder.excludePatterns": {
-                    "type": "array",
-                    "default": [
-                        "**/node_modules/**",
-                        "**/.venv/**",
-                        "**/dist/**",
-                        "**/build/**",
-                        "**/out/**",
-                        "**/.git/**",
-                        "**/.svn/**",
-                        "**/.hg/**",
-                        "**/.next/**",
-                        "**/.turbo/**",
-                        "**/.cache/**",
-                        "**/.vscode-test/**",
-                        "**/.parcel-cache/**",
-                        "**/.vite/**",
-                        "**/.nuxt/**",
-                        "**/coverage/**",
-                        "**/*.jar",
-                        "**/*.zip"
-                    ],
-                    "description": "Glob patterns to exclude from file search",
-                    "order": 6
-                },
-                "codeTelescope.wsFileFinder.maxFileSize": {
-                    "type": "number",
-                    "default": 150,
-                    "description": "Maximum file size ripgrep will search (e.g. 200k, 1M)",
-                    "order": 7
-                },
-                "codeTelescope.wsFileFinder.maxResults": {
-                    "type": "number",
-                    "default": 50000,
-                    "description": "Max number of results to list",
-                    "order": 8
-                },
-                "codeTelescope.wsFileFinder.textDisplay": {
-                    "type": "string",
-                    "enum": [
-                        "relative",
-                        "absolute",
-                        "filename-only"
-                    ],
-                    "default": "relative",
-                    "description": "How to display file path",
-                    "order": 9
-                },
-                "codeTelescope.wsTextFinder.excludePatterns": {
-                    "displayName": "Workspace Text Finder",
-                    "type": "array",
-                    "default": [
-                        "**/node_modules/**",
-                        "**/dist/**",
-                        "**/build/**",
-                        "**/out/**",
-                        "**/.git/**",
-                        "**/.svn/**",
-                        "**/.hg/**",
-                        "**/.next/**",
-                        "**/.turbo/**",
-                        "**/.cache/**",
-                        "**/.parcel-cache/**",
-                        "**/.vite/**",
-                        "**/.nuxt/**",
-                        "**/coverage/**"
-                    ],
-                    "description": "Glob patterns to exclude from file search",
-                    "order": 10
-                },
-                "codeTelescope.wsTextFinder.maxColumns": {
-                    "type": "number",
-                    "default": 500,
-                    "description": "Maximum number of columns per line before ripgrep stops reading the line",
-                    "order": 11
-                },
-                "codeTelescope.wsTextFinder.maxFileSize": {
-                    "type": "string",
-                    "default": "200K",
-                    "description": "Maximum file size ripgrep will search (e.g. 200k, 1M)",
-                    "order": 12
-                },
-                "codeTelescope.wsTextFinder.maxResults": {
-                    "type": "number",
-                    "default": 50000,
-                    "description": "Maximum number of search results to return",
-                    "order": 15
-                },
-                "codeTelescope.preview.scrollBehavior": {
-                    "type": "string",
-                    "enum": [
-                        "auto",
-                        "instant",
-                        "smooth"
-                    ],
-                    "default": "instant",
-                    "order": 16
-                },
-                "codeTelescope.preview.verticalScrollFraction": {
-                    "type": "string",
-                    "enum": [
-                        "1/2",
-                        "1/3",
-                        "1/4"
-                    ],
-                    "default": "1/2",
-                    "description": "Controls how the preview scrolls vertically to reveal the target line",
-                    "order": 17
-                },
-                "codeTelescope.preview.horizontalScrollFraction": {
-                    "type": "string",
-                    "enum": [
-                        "1/2",
-                        "1/3",
-                        "1/4"
-                    ],
-                    "default": "1/2",
-                    "description": "Controls how the preview scrolls horizontally to reveal the target column",
-                    "order": 18
-                },
-                "codeTelescope.preview.showLineNumbers": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If line numbers should be displayed in the preview",
-                    "order": 19
-                },
-                "codeTelescope.layout.mode": {
-                    "type": "string",
-                    "enum": [
-                        "classic",
-                        "ivy"
-                    ],
-                    "default": "classic",
-                    "description": "Layout mode",
-                    "order": 20
-                },
-                "codeTelescope.layout.ivyHeightPct": {
-                    "type": "number",
-                    "default": 75,
-                    "description": "Height in percentage of the ivy layout container",
-                    "order": 21
-                },
-                "codeTelescope.layout.rightSideWidthPct": {
-                    "type": "number",
-                    "default": 50,
-                    "description": "Width in percentage of the right side of the panel",
-                    "order": 22
-                },
-                "codeTelescope.layout.leftSideWidthPct": {
-                    "type": "number",
-                    "default": 50,
-                    "description": "Width in percentage of the left side of the panel",
-                    "order": 23
-                },
-                "codeTelescope.layout.panelContainerPct": {
-                    "type": "number",
-                    "default": 90,
-                    "description": "Width in percentage of the panel container",
-                    "order": 24
-                },
-                "codeTelescope.layout.promptFontSize": {
-                    "type": "number",
-                    "default": 16,
-                    "description": "Font size (px) of the input prompt",
-                    "order": 25
-                },
-                "codeTelescope.layout.resultsFontSize": {
-                    "type": "number",
-                    "default": 16,
-                    "description": "Font size (px) of the results list items",
-                    "order": 26
-                },
-                "codeTelescope.layout.previewFontSize": {
-                    "type": "number",
-                    "default": 18,
-                    "description": "Font size (px) of the preview panel",
-                    "order": 27
-                },
-                "codeTelescope.layout.borderSizeInPx": {
-                    "type": "number",
-                    "default": 1,
-                    "description": "Border size (px)",
-                    "order": 28
-                },
-                "codeTelescope.layout.borderRadiusInPx": {
-                    "type": "number",
-                    "default": 5,
-                    "description": "Border radius (px)",
-                    "order": 29
-                }
-            }
+          }
+        },
+        "codeTelescope.matching.algorithm": {
+          "type": "string",
+          "enum": [
+            "substring",
+            "subsequence"
+          ],
+          "default": "subsequence",
+          "description": "Matching algorithm for search: 'substring' (exact substring match) or 'subsequence' (character-by-character match like fzf)",
+          "order": 3
+        },
+        "codeTelescope.highlighter.wslExtensionPaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "VS Code extension root paths for WSL environment (used for syntax highlighting). Example: [\"/mnt/c/Users/YourName/.vscode/extensions\"]",
+          "order": 3.5
+        },
+        "codeTelescope.wsFileFinder.excludeHidden": {
+          "type": "boolean",
+          "default": true,
+          "description": "Exclude hidden files and folders (dotfiles) from file search results.",
+          "order": 4
+        },
+        "codeTelescope.wsFileFinder.includePatterns": {
+          "type": "array",
+          "default": [
+            "**/*"
+          ],
+          "description": "Glob patterns to include",
+          "order": 5
+        },
+        "codeTelescope.wsFileFinder.fixedStrings": {
+          "type": "boolean",
+          "default": true,
+          "description": "Search using literal text instead of regex.",
+          "order": 4
+        },
+        "codeTelescope.wsFileFinder.excludePatterns": {
+          "type": "array",
+          "default": [
+            "**/node_modules/**",
+            "**/.venv/**",
+            "**/dist/**",
+            "**/build/**",
+            "**/out/**",
+            "**/.git/**",
+            "**/.svn/**",
+            "**/.hg/**",
+            "**/.next/**",
+            "**/.turbo/**",
+            "**/.cache/**",
+            "**/.vscode-test/**",
+            "**/.parcel-cache/**",
+            "**/.vite/**",
+            "**/.nuxt/**",
+            "**/coverage/**",
+            "**/*.jar",
+            "**/*.zip"
+          ],
+          "description": "Glob patterns to exclude from file search",
+          "order": 6
+        },
+        "codeTelescope.wsFileFinder.maxFileSize": {
+          "type": "number",
+          "default": 150,
+          "description": "Maximum file size ripgrep will search (e.g. 200k, 1M)",
+          "order": 7
+        },
+        "codeTelescope.wsFileFinder.maxResults": {
+          "type": "number",
+          "default": 50000,
+          "description": "Max number of results to list",
+          "order": 8
+        },
+        "codeTelescope.wsFileFinder.textDisplay": {
+          "type": "string",
+          "enum": [
+            "relative",
+            "absolute",
+            "filename-only"
+          ],
+          "default": "relative",
+          "description": "How to display file path",
+          "order": 9
+        },
+        "codeTelescope.wsTextFinder.excludePatterns": {
+          "displayName": "Workspace Text Finder",
+          "type": "array",
+          "default": [
+            "**/node_modules/**",
+            "**/dist/**",
+            "**/build/**",
+            "**/out/**",
+            "**/.git/**",
+            "**/.svn/**",
+            "**/.hg/**",
+            "**/.next/**",
+            "**/.turbo/**",
+            "**/.cache/**",
+            "**/.parcel-cache/**",
+            "**/.vite/**",
+            "**/.nuxt/**",
+            "**/coverage/**"
+          ],
+          "description": "Glob patterns to exclude from file search",
+          "order": 10
+        },
+        "codeTelescope.wsTextFinder.maxColumns": {
+          "type": "number",
+          "default": 500,
+          "description": "Maximum number of columns per line before ripgrep stops reading the line",
+          "order": 11
+        },
+        "codeTelescope.wsTextFinder.maxFileSize": {
+          "type": "string",
+          "default": "200K",
+          "description": "Maximum file size ripgrep will search (e.g. 200k, 1M)",
+          "order": 12
+        },
+        "codeTelescope.wsTextFinder.maxResults": {
+          "type": "number",
+          "default": 50000,
+          "description": "Maximum number of search results to return",
+          "order": 15
+        },
+        "codeTelescope.preview.scrollBehavior": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "instant",
+            "smooth"
+          ],
+          "default": "instant",
+          "order": 16
+        },
+        "codeTelescope.preview.verticalScrollFraction": {
+          "type": "string",
+          "enum": [
+            "1/2",
+            "1/3",
+            "1/4"
+          ],
+          "default": "1/2",
+          "description": "Controls how the preview scrolls vertically to reveal the target line",
+          "order": 17
+        },
+        "codeTelescope.preview.horizontalScrollFraction": {
+          "type": "string",
+          "enum": [
+            "1/2",
+            "1/3",
+            "1/4"
+          ],
+          "default": "1/2",
+          "description": "Controls how the preview scrolls horizontally to reveal the target column",
+          "order": 18
+        },
+        "codeTelescope.preview.showLineNumbers": {
+          "type": "boolean",
+          "default": false,
+          "description": "If line numbers should be displayed in the preview",
+          "order": 19
+        },
+        "codeTelescope.layout.mode": {
+          "type": "string",
+          "enum": [
+            "classic",
+            "ivy"
+          ],
+          "default": "classic",
+          "description": "Layout mode",
+          "order": 20
+        },
+        "codeTelescope.layout.ivyHeightPct": {
+          "type": "number",
+          "default": 75,
+          "description": "Height in percentage of the ivy layout container",
+          "order": 21
+        },
+        "codeTelescope.layout.rightSideWidthPct": {
+          "type": "number",
+          "default": 50,
+          "description": "Width in percentage of the right side of the panel",
+          "order": 22
+        },
+        "codeTelescope.layout.leftSideWidthPct": {
+          "type": "number",
+          "default": 50,
+          "description": "Width in percentage of the left side of the panel",
+          "order": 23
+        },
+        "codeTelescope.layout.panelContainerPct": {
+          "type": "number",
+          "default": 90,
+          "description": "Width in percentage of the panel container",
+          "order": 24
+        },
+        "codeTelescope.layout.promptFontSize": {
+          "type": "number",
+          "default": 16,
+          "description": "Font size (px) of the input prompt",
+          "order": 25
+        },
+        "codeTelescope.layout.resultsFontSize": {
+          "type": "number",
+          "default": 16,
+          "description": "Font size (px) of the results list items",
+          "order": 26
+        },
+        "codeTelescope.layout.previewFontSize": {
+          "type": "number",
+          "default": 18,
+          "description": "Font size (px) of the preview panel",
+          "order": 27
+        },
+        "codeTelescope.layout.borderSizeInPx": {
+          "type": "number",
+          "default": 1,
+          "description": "Border size (px)",
+          "order": 28
+        },
+        "codeTelescope.layout.borderRadiusInPx": {
+          "type": "number",
+          "default": 5,
+          "description": "Border radius (px)",
+          "order": 29
         }
-    },
-    "scripts": {
-        "vscode:prepublish": "pnpm run backend:bundle:prod",
-        "backend:bundle:prod": "tsx scripts/bundle-backend.ts --env=prod",
-        "backend:compile": "tsc -p ./backend/tsconfig.build.json",
-        "backend:watch": "tsc -w -p ./backend/tsconfig.build.json",
-        "backend:build": "tsx scripts/bundle-backend.ts",
-        "pretest": "pnpm run backend:bundle:prod && pnpm run lint",
-        "bundle:shiki": "tsx scripts/shiki/plugin.ts",
-        "lint": "biome lint",
-        "check": "biome check",
-        "check:write": "biome check --write",
-        "format:write": "biome format --write",
-        "test:integration": "vscode-test",
-        "test:unit": "vitest",
-        "test:unit:watch": "vitest --watch",
-        "test:unit:cov": "vitest --coverage",
-        "prepare": "husky",
-        "webview:dev": "tsx scripts/bundle-webview.ts --env=dev",
-        "webview:dev:watch": "tsx scripts/bundle-webview.ts --env=dev --watch=true",
-        "webview:prod": "tsx scripts/bundle-webview.ts --env=prod",
-        "webview:prod:watch": "tsx scripts/bundle-webview.ts --env=prod --watch=true",
-        "clean": "rm -rf ui/dist && rm -rf backend/dist",
-        "build": "pnpm webview:prod && pnpm backend:bundle:prod",
-        "make:package": "pnpm clean && pnpm build && vsce package",
-        "deploy:patch": "pnpm make:package && vsce publish patch",
-        "deploy:minor": "pnpm make:package && vsce publish minor",
-        "deploy:major": "pnpm make:package && vsce publish major",
-        "deploy:openvsx": "ovsx publish"
-    },
-    "devDependencies": {
-        "@biomejs/biome": "2.3.11",
-        "@types/mocha": "^10.0.10",
-        "@types/node": "25.x",
-        "@types/vscode": "1.85.0",
-        "@vitest/coverage-v8": "4.0.16",
-        "@vscode/test-cli": "^0.0.12",
-        "@vscode/test-electron": "^2.5.2",
-        "chokidar": "^5.0.0",
-        "esbuild": "^0.27.0",
-        "husky": "^9.1.7",
-        "jsdom": "^26.1.0",
-        "lint-staged": "^16.2.7",
-        "shiki": "^3.17.0",
-        "ts-node": "^10.9.2",
-        "tsx": "^4.21.0",
-        "typescript": "^5.9.3",
-        "vitest": "^4.0.16"
-    },
-    "lint-staged": {
-        "*.{js,ts}": [
-            "pnpm check:write"
-        ]
-    },
-    "pnpm": {
-        "overrides": {
-            "jsdom": "22.1.0"
-        }
-    },
-    "dependencies": {
-        "@vscode/codicons": "^0.0.44",
-        "fast-glob": "^3.3.3",
-        "glob": "^13.0.0",
-        "material-icon-theme": "^5.30.0",
-        "p-limit": "^7.2.0"
-    },
-    "extensionKind": [
-        "workspace"
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run backend:bundle:prod",
+    "backend:bundle:prod": "tsx scripts/bundle-backend.ts --env=prod",
+    "backend:compile": "tsc -p ./backend/tsconfig.build.json",
+    "backend:watch": "tsc -w -p ./backend/tsconfig.build.json",
+    "backend:build": "tsx scripts/bundle-backend.ts",
+    "pretest": "pnpm run backend:bundle:prod && pnpm run lint",
+    "bundle:shiki": "tsx scripts/shiki/plugin.ts",
+    "lint": "biome lint",
+    "check": "biome check",
+    "check:write": "biome check --write",
+    "format:write": "biome format --write",
+    "test:integration": "vscode-test",
+    "test:unit": "vitest",
+    "test:unit:watch": "vitest --watch",
+    "test:unit:cov": "vitest --coverage",
+    "prepare": "husky",
+    "webview:dev": "tsx scripts/bundle-webview.ts --env=dev",
+    "webview:dev:watch": "tsx scripts/bundle-webview.ts --env=dev --watch=true",
+    "webview:prod": "tsx scripts/bundle-webview.ts --env=prod",
+    "webview:prod:watch": "tsx scripts/bundle-webview.ts --env=prod --watch=true",
+    "clean": "rm -rf ui/dist && rm -rf backend/dist",
+    "build": "pnpm webview:prod && pnpm backend:bundle:prod",
+    "make:package": "pnpm clean && pnpm build && vsce package",
+    "deploy:patch": "pnpm make:package && vsce publish patch",
+    "deploy:minor": "pnpm make:package && vsce publish minor",
+    "deploy:major": "pnpm make:package && vsce publish major",
+    "deploy:openvsx": "ovsx publish"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.11",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "25.x",
+    "@types/vscode": "1.85.0",
+    "@vitest/coverage-v8": "4.0.16",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "chokidar": "^5.0.0",
+    "esbuild": "^0.27.0",
+    "husky": "^9.1.7",
+    "jsdom": "^26.1.0",
+    "lint-staged": "^16.2.7",
+    "shiki": "^3.17.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "pnpm check:write"
     ]
+  },
+  "pnpm": {
+    "overrides": {
+      "jsdom": "22.1.0"
+    }
+  },
+  "dependencies": {
+    "@vscode/codicons": "^0.0.44",
+    "fast-glob": "^3.3.3",
+    "glob": "^13.0.0",
+    "material-icon-theme": "^5.30.0",
+    "p-limit": "^7.2.0"
+  },
+  "extensionKind": [
+    "workspace"
+  ]
 }
