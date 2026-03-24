@@ -1,7 +1,8 @@
 .PHONY: build test
 
-VERSION ?= 0.0.2
+VERSION ?= 0.0.3
 CURSOR ?= cursor
+CODE ?= code
 PACKAGE_NAME = code-neovim-style-tools-$(VERSION).vsix
 
 build:
@@ -13,3 +14,4 @@ test:
 	pnpm clean && pnpm build && vsce package --no-dependencies
 	@mv code-neovim-style-tools-*.vsix $(PACKAGE_NAME) 2>/dev/null || true
 	$(CURSOR) --install-extension ./$(PACKAGE_NAME) --force
+	$(CODE) --install-extension ./$(PACKAGE_NAME) --force

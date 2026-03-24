@@ -21,6 +21,7 @@ export class VimInputHandler {
   private onScrollLeft?: () => void;
   private onScrollRight?: () => void;
   private onClose?: () => void;
+  private onCloseTab?: () => void;
   private pendingG = false;
 
   setMoveUpHandler(handler: () => void): void {
@@ -57,6 +58,10 @@ export class VimInputHandler {
 
   setCloseHandler(handler: () => void): void {
     this.onClose = handler;
+  }
+
+  setCloseTabHandler(handler: () => void): void {
+    this.onCloseTab = handler;
   }
 
   constructor(private input: HTMLInputElement) {
@@ -371,7 +376,7 @@ export class VimInputHandler {
 
       // no operator related cases
       case "x":
-        this.deleteRange(pos, Math.min(pos + motionCount, len));
+        this.onCloseTab();
         return;
       case "p":
         this.pasteAfter(pos);

@@ -219,6 +219,13 @@ export interface PostQueryhandlerResultMessage {
   action: PostQueryHandlerAction;
 }
 
+export interface CloseActiveTabMessage {
+  type: "closeActiveTab";
+  data: {
+    filePath: string;
+  };
+}
+
 /**
  * Represents all messages that **the backend sends to the webview**.
  *
@@ -253,4 +260,5 @@ export type FromWebviewKindMessage =
   | HighlighterInitDone
   | PostHandleListMessage
   | PromiseBridgeRequest
-  | UpdateLayoutPropMessage;
+  | UpdateLayoutPropMessage
+  | CloseActiveTabMessage;

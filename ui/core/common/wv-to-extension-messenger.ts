@@ -109,4 +109,8 @@ export class WebviewToExtensionMessenger {
       data,
     });
   }
+
+  requestCloseActiveTab(filePath: string): void {
+    this.postMessage({ type: "closeActiveTab", data: { filePath } });
+  }
 }

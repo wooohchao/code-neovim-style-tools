@@ -193,6 +193,13 @@ export class WebviewController {
     this.vimInputHandler.setCloseHandler(
       WebviewToExtensionMessenger.instance.requestClosePanel.bind(WebviewToExtensionMessenger.instance),
     );
+    // Setup vim close tab in normal mode (x key closes selected tab for recentFiles)
+    this.vimInputHandler.setCloseTabHandler(() => {
+      const selectedValue = OptionListManager.instance.getSelectedValue();
+      if (selectedValue && __PROVIDER__ === "workspace.recentFiles") {
+        WebviewToExtensionMessenger.instance.requestCloseActiveTab(selectedValue);
+      }
+    });
 
     this.keyboardHandler.setMoveUpHandler(OptionListManager.instance.moveSelectionUp.bind(OptionListManager.instance));
     this.keyboardHandler.setMoveDownHandler(
