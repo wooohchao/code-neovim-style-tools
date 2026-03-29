@@ -185,6 +185,10 @@
         "title": "Code Telescope: Open Lazygit"
       },
       {
+        "command": "code-telescope.tools.gitui",
+        "title": "Code Telescope: Open Gitui"
+      },
+      {
         "command": "code-telescope.tools.typora",
         "title": "Code Telescope: Open Typora"
       }

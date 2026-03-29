@@ -12,6 +12,7 @@ import { registerHarpoonCmds } from "./harpoon/commands";
 import { HarpoonOrchestrator } from "./harpoon/orchestrator";
 import { createCodeTelescopeAPI } from "./integration/api";
 import { PerformanceDevModule } from "./perf/perf-dev.module";
+import { openGitui } from "./tools/gitui";
 import { openLazygit } from "./tools/lazygit";
 import { openTmux } from "./tools/tmux";
 import { openTypora } from "./tools/typora";
@@ -88,6 +89,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
   registerHarpoonCmds(manager, ctx);
 
   // Register tools commands
+  registerToolsCmd("gitui", openGitui, ctx);
   registerToolsCmd("lazygit", openLazygit, ctx);
   registerToolsCmd("tmux", openTmux, ctx);
   registerToolsCmd("typora", openTypora, ctx);
