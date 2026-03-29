@@ -191,6 +191,10 @@
       {
         "command": "code-telescope.tools.typora",
         "title": "Code Telescope: Open Typora"
+      },
+      {
+        "command": "code-telescope.tools.zellij",
+        "title": "Code Telescope: Open Zellij"
       }
     ],
     "keybindings": [

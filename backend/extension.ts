@@ -16,6 +16,7 @@ import { openGitui } from "./tools/gitui";
 import { openLazygit } from "./tools/lazygit";
 import { openTmux } from "./tools/tmux";
 import { openTypora } from "./tools/typora";
+import { openZellij } from "./tools/zellij";
 import { registerProviderCmd, registerToolsCmd } from "./utils/commands";
 import { getConfigurationSection } from "./utils/configuration";
 
@@ -93,6 +94,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
   registerToolsCmd("lazygit", openLazygit, ctx);
   registerToolsCmd("tmux", openTmux, ctx);
   registerToolsCmd("typora", openTypora, ctx);
+  registerToolsCmd("zellij", openZellij, ctx);
 
   Logger.info(`${Globals.EXTENSION_NAME} activated!`);
 
