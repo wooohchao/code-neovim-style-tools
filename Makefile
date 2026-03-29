@@ -1,6 +1,6 @@
 .PHONY: build test
 
-VERSION ?= 0.0.5
+VERSION ?= 0.0.6
 CURSOR ?= cursor
 CODE ?= code
 PACKAGE_NAME = code-neovim-style-tools-$(VERSION).vsix
