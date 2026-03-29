@@ -20,6 +20,8 @@ async function focusTmuxTerminal(): Promise<boolean> {
 }
 
 async function newTmuxTerminal(): Promise<void> {
+  const activeEditor = vscode.window.activeTextEditor;
+
   await vscode.commands.executeCommand("workbench.action.terminal.newInActiveWorkspace");
   const terminal = vscode.window.activeTerminal!;
 
@@ -28,6 +30,16 @@ async function newTmuxTerminal(): Promise<void> {
 
   terminal.sendText(command);
   terminal.show();
+
+  vscode.window.onDidCloseTerminal((closedTerminal) => {
+    if (closedTerminal === terminal) {
+      if (activeEditor && activeEditor.viewColumn) {
+        vscode.window.showTextDocument(activeEditor.document, activeEditor.viewColumn);
+      } else {
+        vscode.commands.executeCommand("workbench.action.focusActiveEditorGroup");
+      }
+    }
+  });
 
   await vscode.commands.executeCommand("workbench.action.terminal.moveToEditor");
   await vscode.commands.executeCommand("workbench.action.focusActiveEditorGroup");
